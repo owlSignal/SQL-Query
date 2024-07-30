@@ -1,0 +1,75 @@
+# INNER JOIN
+# Create an INNER JOIN to join both the items table on the author table to retrieve both the title of the book and the author name
+
+SELECT o.itemid, c.customername
+FROM orderinfo AS o
+INNER JOIN customer AS c ON o.customerid=c.customerid;
+
+# INNER JOIN to get book title and author name
+SELECT i.booktitle, a.authorname
+FROM item AS i
+INNER JOIN author AS a ON i.authorid=a.authorid;
+
+# LEFT JOIN
+# Return all of the customers from the customer table and have that on the left hand side and the order's item from the order info table.
+
+SELECT i.booktitle, a.authorname
+FROM item AS i
+LEFT JOIN author AS a ON i.authorid=a.authorid
+ORDER BY i.booktitle;
+
+# LEFT JOIN to get customer names and their order items
+SELECT c.customername, o.itemid
+FROM customer AS c
+LEFT JOIN orderinfo AS o ON c.customerid=o.customerid
+ORDER BY c.customername;
+
+# RIGHT JOIN
+# Create a right join on the item table to bring back the author's name from the author's table on the left hand side.
+
+SELECT o.itemid, c.customername
+FROM orderinfo AS o
+RIGHT JOIN customer AS c ON o.customerid=c.customerid
+ORDER BY c.customername;
+
+# RIGHT JOIN itemtable with booktitle
+# ON the left authortable with the authorname
+
+SELECT a.authorname, i.booktitle
+FROM author AS a 
+RIGHT JOIN item AS i ON a.authorid=i.authorid
+ORDER BY a.authorname;
+
+# SELF JOIN AND CROSS JOIN
+# Use the author table and the item table to return all of the author names and all of the book titles if they're matching in both tables
+
+# SELF JOIN to get employee and manager names
+SELECT e.firstname AS EmployeeName, em.firstname AS ManagerName
+FROM employees e
+INNER JOIN employees em
+ON e.managerid=em.managerid;
+
+# CROSS JOIN between item and author tables
+SELECT *
+FROM item
+CROSS JOIN author;
+
+# INNER JOIN to get matching author names and book titles
+SELECT a.authorname, i.booktitle
+FROM author AS a
+INNER JOIN item AS i ON a.authorid=i.authorid;
+
+# UNION AND UNION ALL
+# Develop a query that brings back all the names within the customer and Employees table.
+
+# UNION to combine customer names and employee first names
+SELECT customername FROM customer
+UNION
+SELECT firstname FROM employees
+ORDER BY customername;
+
+# UNION ALL to combine cities from customer and supplier tables
+SELECT city FROM customer
+UNION ALL
+SELECT city FROM supplier
+ORDER BY city;
