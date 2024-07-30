@@ -1,22 +1,23 @@
 # INNER JOIN
 # Create an INNER JOIN to join both the items table on the author table to retrieve both the title of the book and the author name
 
-SELECT o.itemid, c.customername
+'SELECT o.itemid, c.customername
 FROM orderinfo AS o
-INNER JOIN customer AS c ON o.customerid=c.customerid;
+INNER JOIN customer AS c ON o.customerid=c.customerid;'
 
 # INNER JOIN to get book title and author name
-SELECT i.booktitle, a.authorname
+
+'SELECT i.booktitle, a.authorname
 FROM item AS i
-INNER JOIN author AS a ON i.authorid=a.authorid;
+INNER JOIN author AS a ON i.authorid=a.authorid;'
 
 # LEFT JOIN
 # Return all of the customers from the customer table and have that on the left hand side and the order's item from the order info table.
 
-SELECT i.booktitle, a.authorname
+'SELECT i.booktitle, a.authorname
 FROM item AS i
 LEFT JOIN author AS a ON i.authorid=a.authorid
-ORDER BY i.booktitle;
+ORDER BY i.booktitle;'
 
 # LEFT JOIN to get customer names and their order items
 SELECT c.customername, o.itemid
