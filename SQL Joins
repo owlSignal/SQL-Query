@@ -1,9 +1,10 @@
-# INNER JOIN
-# Create an INNER JOIN to join both the items table on the author table to retrieve both the title of the book and the author name
+### INNER JOIN
 
-'SELECT o.itemid, c.customername
+#### Query 1: Retrieve order items and customer names
+```sql
+SELECT o.itemid, c.customername
 FROM orderinfo AS o
-INNER JOIN customer AS c ON o.customerid=c.customerid;'
+INNER JOIN customer AS c ON o.customerid=c.customerid;
 
 # INNER JOIN to get book title and author name
 
